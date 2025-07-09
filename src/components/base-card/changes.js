@@ -165,23 +165,13 @@ export function changeIcon(context) {
         buttonType === 'name' ||
         (cardType === 'pop-up' && !buttonType)
 
-    let newIconColor = 'inherit';
+    let newIconColor = 'var(--bubble-icon-color, var(--disabled-color))';
 
     if (isOn) {
         if ((isEntityType(context, "light") && !useAccentColor) || !noColor) {
             newIconColor = `var(--bubble-icon-color, ${getIconColor(context)})`;
         } else if (entityType === 'climate') {
             newIconColor = getClimateColor(context);
-        }
-    }
-
-    if (context.elements.iconContainer) {
-        if (newIconColor !== 'inherit') {
-            if (currentIconColor !== newIconColor) {
-                context.elements.iconContainer.style.color = newIconColor;
-            }
-        } else if (currentIconColor !== '') {
-            context.elements.iconContainer.style.color = '';
         }
     }
 

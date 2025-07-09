@@ -165,7 +165,7 @@ export function changeIcon(context) {
         buttonType === 'name' ||
         (cardType === 'pop-up' && !buttonType)
 
-    let newIconColor = 'var(--bubble-icon-color, var(--disabled-color))';
+    let newIconColor = 'var(--bubble-icon-color, var(--bubble-default-color, var(--disabled-color)))';
 
     if (isOn) {
         if ((isEntityType(context, "light") && !useAccentColor) || !noColor) {
